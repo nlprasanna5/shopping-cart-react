@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import '../styles/cart.css';
 
-function Cart({ cart, setCart,handleChange }) {
-    const [price,setPrice] = useState(0);
+function Cart({ cart, setCart, handleChange }) {
+    const [price, setPrice] = useState(0);
 
-    const handlePrice=()=> {
-        let ans=0;
+    const handlePrice = () => {
+        let ans = 0;
         cart.map((item) => {
-            ans=ans+item.amount*item.price;
+            ans = ans + item.amount * item.price;
         })
         setPrice(ans);
     }
 
-    const handleRemove=(id)=> {
-        const arr=cart.filter((item)=> item.id!==id);
+    const handleRemove = (id) => {
+        const arr = cart.filter((item) => item.id !== id);
         setCart(arr);
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         handlePrice();
     })
 
@@ -32,13 +32,13 @@ function Cart({ cart, setCart,handleChange }) {
                                 <p>{item.title}</p>
                             </div>
                             <div>
-                                <button onClick={()=>handleChange(item,+1)}> + </button>
+                                <button onClick={() => handleChange(item, -1)}> - </button>
                                 <button>{item.amount}</button>
-                                <button onClick={()=>handleChange(item,-1)}> - </button>
+                                <button onClick={() => handleChange(item, +1)}> + </button>
                             </div>
                             <div>
                                 <span>{item.price}</span>
-                                <button onClick={()=> handleRemove(item.id)}>Remove</button>
+                                <button onClick={() => handleRemove(item.id)}>Remove</button>
                             </div>
 
                         </div>
@@ -49,7 +49,7 @@ function Cart({ cart, setCart,handleChange }) {
             }
             <div className="total">
                 <span>Total Price of your Cart</span>
-                <span>Rs - {price}</span>
+                <span>Rs - {price.toFixed(2)}</span>
             </div>
         </article>
     )
