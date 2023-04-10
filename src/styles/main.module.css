@@ -1,0 +1,51 @@
+body {
+    background-image: url('https://t4.ftcdn.net/jpg/02/86/36/11/360_F_286361199_fzZsOpZ3memFzCn889a9TZHMuTTsFrVl.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    font-weight: bold;
+    padding:1rem;
+}
+
+.login  {
+    font-size: 1rem;
+    cursor: pointer;
+    color:white;
+}
+
+.log{
+    color:white;
+    text-decoration: none;
+}
+
+.login:hover {
+    font-size: 1.5rem;
+}
+
+.message {
+    font-size: 2rem;
+    align-items: self;
+    color: #210062;
+    
+}
+
+.messageContainer {
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.name {
+    cursor: pointer;
+}
+
+
+
