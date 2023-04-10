@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import registerStyle from "../styles/register.module.css";
 import InputField from "./InputRegister";
+import Heading from "./MainNav";
 // import RegisterButton from "./RegisterButton";
 // import SignupName from "./signupName";
 
@@ -25,9 +26,12 @@ function Register() {
   };
 
   return (
-    <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
+    <>
+    <Heading/>
+    <div className={registerStyle.container}>
+      <form className={registerStyle.form} onSubmit={handleSubmit}>
         {/* <SignupName formHeader="Signup/Register"/> */}
+        <h2 className={registerStyle.register}>Register</h2>
         <InputField
           label="First Name:"
           id="firstName"
@@ -60,9 +64,10 @@ function Register() {
           type="password"
         />
       {/* <RegisterButton name="submit"/> */}
-      <button type="submit" className='register-button'>submit</button>
+      <button type="submit" className={registerStyle.registerButton}>submit</button>
       </form>
     </div>
+    </>
   );
 }
 
