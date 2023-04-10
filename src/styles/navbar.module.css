@@ -6,13 +6,12 @@
 nav {
     width: 100%;
     height: 60px;
-    /* background-color: skyblue; */
     background-color: #19376D;
 }
 
-.nav_box {
+.navBox {
     width: 80%;
-    margin:auto;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,31 +19,33 @@ nav {
     padding: 0.8rem;
 }
 
-.my_shop {
+.myShop {
     font-size: 1.5rem;
     font-weight: bold;
-    color:white;
+    color: white;
     font-family: cursive;
     cursor: pointer;
     text-align: center;
     align-items: center;
 }
-.my_shop:hover {
-color: #86E5FF;
+
+.myShop:hover {
+    color: #86E5FF;
 }
+
 .cart {
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.cart span:nth-child(1){
+.cart span:nth-child(1) {
     font-size: 2rem;
-    color:white;
+    color: white;
 }
 
-.cart span:nth-child(2){
-    padding:0 3px;
+.cart span:nth-child(2) {
+    padding: 0 3px;
     background-color: red;
-    color:white;
+    color: white;
     font-weight: bold;
     border-radius: 5px;
     position: relative;

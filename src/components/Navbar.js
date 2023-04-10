@@ -1,14 +1,14 @@
 import React from 'react';
-import '../styles/navbar.css';
+import navStyle from '../styles/navbar.module.css';
 
 const Navbar =({size,setShow})=> {
     return (
         <nav>
-            <div className='nav_box'>
-                <span className='my_shop' onClick={()=>setShow(true)}>
+            <div className={navStyle.navBox}>
+                <span className={navStyle.myShop} onClick={()=>setShow(true)}>
                     My Shopping
                 </span>
-                <div className='cart' onClick={()=>setShow(false)}>
+                <div className={navStyle.cart} onClick={()=>setShow(false)}>
                    <span>
                     <i className='fas fa-cart-plus'></i>
                    </span>

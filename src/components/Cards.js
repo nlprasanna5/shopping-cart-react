@@ -1,15 +1,15 @@
 import React from "react";
-import '../styles/cards.css';
+import cardStyle from '../styles/cards.module.css';
 
 const Cards = (({ item,handleClick }) => {
     const { title, category, price, image } = item;
 
     return (
-        <div className="cards">
-            <div className="image_box">
+        <div className={cardStyle.cards}>
+            <div className={cardStyle.imageBox}>
                 <img src={image} alt='image' />
             </div>
-            <div className="details">
+            <div className={cardStyle.details}>
                 <p>{title}</p>
                 <p>{category}</p>
                 <p>Price - {price}Rs</p>
