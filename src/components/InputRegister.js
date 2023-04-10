@@ -1,5 +1,5 @@
 import React from "react";
-import './registerStyle.css';
+// import './registerStyle.css';
 
 function InputField({ label, id, name, value, onChange, inputRef, type = "text" }) {
   return (
