@@ -5,33 +5,28 @@ import Heading from "./MainNav";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+
   const firstNameRef = useRef(null);
   const passwordRef = useRef(null);
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const [data, setData] = useState(() => {
     const storedData = localStorage.getItem("registerData");
-    return storedData ? JSON.parse(storedData) : {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    };
+    return storedData
+      ? JSON.parse(storedData)
+      : {
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      };
   });
 
   useEffect(() => {
     localStorage.setItem("registerData", JSON.stringify(data));
   }, [data]);
-  
-  // const [data, setData] = useState({
-  //   firstName:'',
-  //   lastName:'',
-  //   email:'',
-  //   password:'',
-  //   confirmPassword:'',
-  // });
 
   const { firstName, lastName, email, password, confirmPassword } = data;
 
@@ -39,58 +34,53 @@ function Register() {
     firstNameRef.current.focus();
   }, []);
 
-  
 
   function changeHandler(e) {
     setData({ ...data, [e.target.name]: e.target.value });
   }
 
-  function handleRegister(){
-    navigate('/success');
+  function handleRegister() {
+    navigate("/success");
   }
 
-  
   function handleSubmit(e) {
     e.preventDefault();
     let isValid = true;
-    
-    if (firstName && firstName.length <= 5 || !isNaN(firstName ||firstName=='')) {
-      firstNameRef.current.textContent = 'Username must be at least 5 characters and numbers are not allowed';
-      
+
+    if (firstName.length < 5 || /\d/.test(firstName)) {
+      firstNameRef.current.textContent =
+        "Username must be at least 5 characters and cannot contain numbers";
       isValid = false;
     } else {
-      firstNameRef.current.textContent = '';
+      firstNameRef.current.textContent = "";
     }
-    
-    if (password && password !== confirmPassword || password=='') {
-      passwordRef.current.textContent = 'Passwords not matched.';
-      setData({
-        password: '',
-        confirmPassword: '',
-      });
+
+    if (password !== confirmPassword) {
+      passwordRef.current.textContent = "Passwords do not match";
       isValid = false;
     } else {
-      passwordRef.current.textContent = '';
+      passwordRef.current.textContent = "";
     }
-    
     if (isValid) {
       console.log(data);
       setData({
-        firstName: '',
-        lastName:'',
-        email: '',
-        password: '',
-        confirmPassword: '',
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
       });
 
       handleRegister();
-
     }
   }
 
+
+
+
   return (
     <>
-      <Heading/>
+      <Heading />
       <div className={registerStyle.container}>
         <form className={registerStyle.form} onSubmit={handleSubmit}>
           <h2 className={registerStyle.register}>Register</h2>
@@ -135,7 +125,7 @@ function Register() {
           />
           <h4 ref={firstNameRef} className={registerStyle.value}></h4>
           <h4 ref={passwordRef} className={registerStyle.value}></h4>
-          
+
           <button type="submit" className={registerStyle.registerButton} >submit</button>
         </form>
       </div>
@@ -150,16 +140,9 @@ export default Register;
 
 
 
-// useEffect(() => {
-  //   const storedData = localStorage.getItem('formData');
-  //   if (storedData) {
-  //     const parsedData = JSON.parse(storedData);
-  //     setData(parsedData);
-  //   }
-  // }, []);
 
-  
-  
+
+
 
 
 
