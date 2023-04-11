@@ -9,14 +9,29 @@ function Register() {
   const passwordRef = useRef(null);
 
   const navigate=useNavigate();
-  
-  const [data, setData] = useState({
-    firstName:'',
-    lastName:'',
-    email:'',
-    password:'',
-    confirmPassword:'',
+
+  const [data, setData] = useState(() => {
+    const storedData = localStorage.getItem("registerData");
+    return storedData ? JSON.parse(storedData) : {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    };
   });
+
+  useEffect(() => {
+    localStorage.setItem("registerData", JSON.stringify(data));
+  }, [data]);
+  
+  // const [data, setData] = useState({
+  //   firstName:'',
+  //   lastName:'',
+  //   email:'',
+  //   password:'',
+  //   confirmPassword:'',
+  // });
 
   const { firstName, lastName, email, password, confirmPassword } = data;
 
@@ -30,12 +45,16 @@ function Register() {
     setData({ ...data, [e.target.name]: e.target.value });
   }
 
+  function handleRegister(){
+    navigate('/success');
+  }
+
   
   function handleSubmit(e) {
     e.preventDefault();
     let isValid = true;
     
-    if (firstName && firstName.length <= 5 || !isNaN(firstName)) {
+    if (firstName && firstName.length <= 5 || !isNaN(firstName ||firstName=='')) {
       firstNameRef.current.textContent = 'Username must be at least 5 characters and numbers are not allowed';
       
       isValid = false;
@@ -43,7 +62,7 @@ function Register() {
       firstNameRef.current.textContent = '';
     }
     
-    if (password && password !== confirmPassword) {
+    if (password && password !== confirmPassword || password=='') {
       passwordRef.current.textContent = 'Passwords not matched.';
       setData({
         password: '',
@@ -63,6 +82,9 @@ function Register() {
         password: '',
         confirmPassword: '',
       });
+
+      handleRegister();
+
     }
   }
 
@@ -114,7 +136,7 @@ function Register() {
           <h4 ref={firstNameRef} className={registerStyle.value}></h4>
           <h4 ref={passwordRef} className={registerStyle.value}></h4>
           
-          <button type="submit" className={registerStyle.registerButton} onClick={()=>navigate('/success')}>submit</button>
+          <button type="submit" className={registerStyle.registerButton} >submit</button>
         </form>
       </div>
     </>
@@ -135,6 +157,8 @@ export default Register;
   //     setData(parsedData);
   //   }
   // }, []);
+
+  
   
 
 
