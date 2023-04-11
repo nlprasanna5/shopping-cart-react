@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: aqua;
+  background-color: #B9EDDD;
   padding-right:3.5rem;
 }
 
@@ -70,11 +70,20 @@
   .registerLink {
     margin-top: 20px;
     text-align: center;
+   
   }
-  
+  .reg {
+    cursor: pointer;
+    color: blue;
+
+  }
   .registerLink a {
     color: blue;
     text-decoration: underline;
+  }
+
+  .errorMessage {
+    color:red;
   }
   
 

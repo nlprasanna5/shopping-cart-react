@@ -19,6 +19,18 @@ nav {
     padding: 0.8rem;
 }
 
+.about {
+    display: flex;
+    color: white;
+    gap:2rem;
+    cursor: pointer;
+}
+
+.logout {
+    color:white;
+    cursor: pointer;
+}
+
 .myShop {
     font-size: 1.5rem;
     font-weight: bold;

@@ -1,7 +1,8 @@
  body {
-    background-image: url('https://t4.ftcdn.net/jpg/02/86/36/11/360_F_286361199_fzZsOpZ3memFzCn889a9TZHMuTTsFrVl.jpg');
+    /* background-image: url('https://t4.ftcdn.net/jpg/02/86/36/11/360_F_286361199_fzZsOpZ3memFzCn889a9TZHMuTTsFrVl.jpg'); */
     background-repeat: no-repeat;
-    background-size: cover; 
+    /* background-size: cover;  */
+    background-color: #C7F4FF;
      width:100%;
    
  } 
