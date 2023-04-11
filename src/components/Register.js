@@ -24,6 +24,8 @@ function Register() {
     firstNameRef.current.focus();
   }, []);
 
+  
+
   function changeHandler(e) {
     setData({ ...data, [e.target.name]: e.target.value });
   }
@@ -121,6 +123,19 @@ function Register() {
 
 export default Register;
 
+
+
+
+
+
+// useEffect(() => {
+  //   const storedData = localStorage.getItem('formData');
+  //   if (storedData) {
+  //     const parsedData = JSON.parse(storedData);
+  //     setData(parsedData);
+  //   }
+  // }, []);
+  
 
 
 
