@@ -3,12 +3,14 @@ import styles from "../styles/login.module.css";
 import Heading from "./MainNav";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const LoginForm = () => {
+
+    const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const refer = useRef(null);
 
-  const navigate = useNavigate();
+ 
 
   const storedData = localStorage.getItem("registerData");
   if (!storedData) {
@@ -78,7 +80,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
 
 
 

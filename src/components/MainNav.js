@@ -1,6 +1,6 @@
 import React from "react";
 import mainStyle from '../styles/main.module.css';
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
@@ -19,7 +19,7 @@ const Heading =()=> {
                 <h3 onClick={()=>navigate('/')}>My Shopping</h3>
             </div>
             <div className={mainStyle.login}>
-            <p className={mainStyle.log}><NavLink to='/login' style={{color:'white'}}>Login</NavLink> </p>
+            <p className={mainStyle.log} style={{color:'white'}} onClick={()=>navigate('/login')}> Login </p>
             </div>
         </div>
     </nav>
