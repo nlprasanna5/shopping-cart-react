@@ -25,7 +25,7 @@ function Register() {
   });
 
   useEffect(() => {
-    localStorage.setItem("registerData", JSON.stringify(data));
+    localStorage.getItem("registerData", JSON.stringify({...data}));
   }, [data]);
 
   const { firstName, lastName, email, password, confirmPassword } = data;
@@ -63,6 +63,13 @@ function Register() {
     }
     if (isValid) {
       console.log(data);
+     
+
+      const newData = { ...data, submittedAt: new Date() };
+      setData(newData);
+
+      // Store merged data in localStorage
+      localStorage.setItem("registerData", JSON.stringify(newData));
       setData({
         firstName: "",
         lastName: "",
@@ -72,6 +79,8 @@ function Register() {
       });
 
       handleRegister();
+
+      
     }
   }
 
