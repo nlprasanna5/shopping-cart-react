@@ -78,8 +78,15 @@ function Register() {
 
       handleRegister();
     }
-    axios.post("/api/user", data);
   }
+
+  const fetchData = async () => {
+    await axios.post("/api/user", data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
