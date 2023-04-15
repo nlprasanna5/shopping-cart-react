@@ -78,8 +78,14 @@ function Register() {
 
       handleRegister();
     }
-    axios.post("/api/user", data);
+    
+   
   }
+
+  useEffect(()=> {
+    axios.post("/api/user", data);
+
+  },[]);
 
   return (
     <>
