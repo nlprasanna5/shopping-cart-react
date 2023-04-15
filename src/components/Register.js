@@ -3,9 +3,9 @@ import registerStyle from "../styles/register.module.css";
 import InputField from "./InputRegister";
 import Heading from "./MainNav";
 import { useNavigate } from "react-router-dom";
+import axios from "../Axios/axios";
 
 function Register() {
-
   const firstNameRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -16,16 +16,16 @@ function Register() {
     return storedData
       ? JSON.parse(storedData)
       : {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      };
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        };
   });
 
   useEffect(() => {
-    localStorage.getItem("registerData", JSON.stringify({...data}));
+    localStorage.getItem("registerData", JSON.stringify({ ...data }));
   }, [data]);
 
   const { firstName, lastName, email, password, confirmPassword } = data;
@@ -33,7 +33,6 @@ function Register() {
   useEffect(() => {
     firstNameRef.current.focus();
   }, []);
-
 
   function changeHandler(e) {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -63,7 +62,6 @@ function Register() {
     }
     if (isValid) {
       console.log(data);
-     
 
       const newData = { ...data, submittedAt: new Date() };
       setData(newData);
@@ -79,19 +77,19 @@ function Register() {
       });
 
       handleRegister();
-
-      
     }
+    axios.post("/api/user", data);
   }
-
-
-
 
   return (
     <>
       <Heading />
       <div className={registerStyle.container}>
-        <form className={registerStyle.form} onSubmit={handleSubmit}>
+        <form
+          className={registerStyle.form}
+          onSubmit={handleSubmit}
+          method="POST"
+        >
           <h2 className={registerStyle.register}>Register</h2>
           <InputField
             label="First Name:"
@@ -135,7 +133,9 @@ function Register() {
           <h4 ref={firstNameRef} className={registerStyle.value}></h4>
           <h4 ref={passwordRef} className={registerStyle.value}></h4>
 
-          <button type="submit" className={registerStyle.registerButton} >submit</button>
+          <button type="submit" className={registerStyle.registerButton}>
+            submit
+          </button>
         </form>
       </div>
     </>
@@ -143,51 +143,3 @@ function Register() {
 }
 
 export default Register;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
