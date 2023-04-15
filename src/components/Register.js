@@ -38,9 +38,9 @@ function Register() {
     setData({ ...data, [e.target.name]: e.target.value });
   }
 
-  function handleRegister() {
-    navigate("/success");
-  }
+  // function handleRegister() {
+  //   navigate("/success");
+  // }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -75,17 +75,18 @@ function Register() {
         password: "",
         confirmPassword: "",
       });
-
-      handleRegister();
+      fetchData()
+      // handleRegister();
     }
     
    
   }
+  const fetchData = async()=>{
+    await axios.post("/api/user", data);
+    alert("create successfully...")
+  }
 
-  useEffect(()=> {
-    axios.post("/api/user", data);
-
-  },[]);
+    
 
   return (
     <>
