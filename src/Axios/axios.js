@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-    baseURL:"https://shooping-backend.onrender.com"
+    baseURL:"https://shopping-backend-t6jp.onrender.com"
 })
 
 export default API
