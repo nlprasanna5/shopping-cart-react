@@ -8,11 +8,11 @@ const LoginForm = () => {
   const [details, setDetails] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
-    const data = details;
-    const res = await axios.get("api/user", {
-      params: { email: data.email, password: data.password },
-    });
-    console.log(res);
+    e.preventDefault();
+    const res = await axios.post("https://shopping-backend-t6jp.onrender.com/api/user", details);
+    if (res.status === 200) {
+      navigate("/home");
+    } 
   };
   return (
     <>
