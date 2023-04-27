@@ -9,7 +9,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("https://shopping-backend-t6jp.onrender.com/api/user", details);
+    const res = await axios.post("https://shopping-backend-t6jp.onrender.com/api/register", details);
     if (res.status === 200) {
       navigate("/home");
     } 
