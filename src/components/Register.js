@@ -3,9 +3,10 @@ import registerStyle from "../styles/register.module.css";
 import InputField from "./InputRegister";
 import Heading from "./MainNav";
 import { useNavigate } from "react-router-dom";
-import axios from "../Axios/axios";
+import axios from 'axios'
 
 function Register() {
+  const navigate = useNavigate()
   const [details, setDetails] = useState({
     firstName: "",
     lastName: "",
@@ -20,9 +21,10 @@ function Register() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const data = details;
-    const res = await axios.post("https://shopping-backend-t6jp.onrender.com/api/user", data);
-    console.log(res);
+    const res = await axios.post("https://shopping-backend-t6jp.onrender.com/api/user", details);
+    if(res.status === 201){
+      navigate("/login")
+    }
   }
   return (
     <>
