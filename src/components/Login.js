@@ -12,7 +12,7 @@ const LoginForm = () => {
     const res = await axios.post("https://shopping-backend-t6jp.onrender.com/api/register", details);
     if (res.status === 200) {
       navigate("/home");
-    } 
+    }
   };
   return (
     <>
